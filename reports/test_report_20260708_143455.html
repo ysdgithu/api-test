@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Interface Test Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header p { opacity: 0.8; font-size: 14px; }
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+        .info-item { font-size: 14px; color: #666; }
+        .info-item strong { color: #333; }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .summary-card.total { border-top: 4px solid #6c757d; }
+        .summary-card.passed { border-top: 4px solid #28a745; }
+        .summary-card.failed { border-top: 4px solid #dc3545; }
+        .summary-card.rate { border-top: 4px solid #17a2b8; }
+        .summary-card.duration { border-top: 4px solid #ffc107; }
+        .summary-card .number { font-size: 32px; font-weight: bold; color: #333; }
+        .summary-card .label { font-size: 12px; color: #666; margin-top: 5px; }
+        .test-details { padding: 30px; }
+        .test-details h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .test-table { width: 100%; border-collapse: collapse; }
+        .test-table th, .test-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .test-table th { background: #f8f9fa; font-weight: 600; color: #555; }
+        .test-table tr:hover { background: #f8f9fa; }
+        .status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status.pass { background: #d4edda; color: #155724; }
+        .status.fail { background: #f8d7da; color: #721c24; }
+        .timestamp {
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .chart {
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .chart-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>API Interface Test Report</h1>
+            <p>Generated at 2026-07-08T14:34:55.532716</p>
+        </div>
+        <div class="info">
+            <div class="info-item"><strong>项目地址:</strong> http://localhost:8000</div>
+            <div class="info-item"><strong>测试模块:</strong> </div>
+        </div>
+        <div class="summary">
+            <div class="summary-card total">
+                <div class="number">0</div>
+                <div class="label">Total Tests</div>
+            </div>
+            <div class="summary-card passed">
+                <div class="number">0</div>
+                <div class="label">Passed</div>
+            </div>
+            <div class="summary-card failed">
+                <div class="number">0</div>
+                <div class="label">Failed</div>
+            </div>
+            <div class="summary-card rate">
+                <div class="number">0%</div>
+                <div class="label">Pass Rate</div>
+                <div class="chart">
+                    <div class="chart-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="summary-card duration">
+                <div class="number">0.0s</div>
+                <div class="label">Duration</div>
+            </div>
+        </div>
+        <div class="test-details">
+            <h2>Test Cases</h2>
+            <table class="test-table">
+                <thead>
+                    <tr>
+                        <th>Test Name</th>
+                        <th>Status</th>
+                        <th>Expected</th>
+                        <th>Actual</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>                </tbody>
+            </table>
+        </div>
+        <div class="timestamp">Report generated by API Interface Test Skill</div>
+    </div>
+</body>
+</html>

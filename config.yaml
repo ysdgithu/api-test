@@ -1,0 +1,13 @@
+base_url: "http://localhost:8000"
+timeout: 30
+auth:
+  token_url: "/api/token/"
+  refresh_url: "/api/token/refresh/"
+  username: "test_user"
+  password: "test_password123"
+report:
+  output_dir: "./reports"
+  html_filename: "test_report.html"
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

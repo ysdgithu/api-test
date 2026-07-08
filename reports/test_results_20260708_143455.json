@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0,
+    "pass_rate": 0,
+    "duration": 0.0,
+    "timestamp": "2026-07-08T14:34:55.533436",
+    "base_url": "http://localhost:8000",
+    "module_name": ""
+  },
+  "test_cases": [],
+  "generated_at": "2026-07-08T14:34:55.533440"
+}
