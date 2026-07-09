@@ -17,7 +17,7 @@ class AuthManager:
     def login(self, username: str, password: str) -> bool:
         try:
             data = {'username': username, 'password': password}
-            status_code, response, _ = self.client.post(self.token_url, data)
+            status_code, response, *_ = self.client.post(self.token_url, data)
 
             if status_code == 200 and 'access' in response:
                 self.access_token = response['access']
@@ -51,7 +51,7 @@ class AuthManager:
 
         try:
             data = {'refresh': self.refresh_token}
-            status_code, response, _ = self.client.post(self.refresh_url, data)
+            status_code, response, *_ = self.client.post(self.refresh_url, data)
 
             if status_code == 200 and 'access' in response:
                 self.access_token = response['access']
@@ -83,7 +83,7 @@ class AuthManager:
             data = {'username': username, 'password': password}
             if email:
                 data['email'] = email
-            status_code, response, _ = client.post(register_url, data)
+            status_code, response, *_ = client.post(register_url, data)
             if status_code in [200, 201]:
                 logger.info(f"Test user '{username}' created successfully")
                 return True
