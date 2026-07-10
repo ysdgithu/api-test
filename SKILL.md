@@ -29,7 +29,7 @@ description: "API接口测试技能，支持新增接口测试、修改接口测
    - 已有账号信息（如不创建）
    - 新增/修改的接口及说明（如有）
    - 可能受影响的接口（回归测试）
-4. **生成测试用例文档**: AI生成测试用例文档（.md格式），保存到 `{project_root}/{module_name}/test_cases.md`
+4. **生成测试用例文档**: AI生成测试用例文档（.md格式），保存到 `{project_root}/test/{module_name}/test_cases.md`
 5. **阶段结束**: AI告知用户测试用例文档已生成，等待用户确认
 
 **AI输出示例**:
@@ -50,15 +50,15 @@ description: "API接口测试技能，支持新增接口测试、修改接口测
 
 **触发条件**: 用户回复"测试用例没问题"、"可以继续"、"确认执行"等确认性语句
 
-1. **脚本编写**: AI创建测试脚本文件，保存到 `{project_root}/{module_name}/test_script.py`。**脚本必须打印每个测试的原始请求和响应信息**，便于调试和问题排查
+1. **脚本编写**: AI创建测试脚本文件，保存到 `{project_root}/test/{module_name}/test_script.py`。**脚本必须打印每个测试的原始请求和响应信息**，便于调试和问题排查
 2. **服务器检查**: 检查后端服务器是否已启动（通过访问base_url判断），如果未启动则启动服务器，如果已启动则直接使用
 3. **脚本运行**: 执行测试脚本
-4. **报告输出**: AI生成测试报告（.md格式），**使用固定文件名 `{project_root}/{module_name}/test_report.md`，每次执行覆盖更新，不生成带时间戳的新文件**。报告中仅记录问题，不尝试修复
+4. **报告输出**: AI生成测试报告（.md格式），**使用固定文件名 `{project_root}/test/{module_name}/test_report.md`，每次执行覆盖更新，不生成带时间戳的新文件**。报告中仅记录问题，不尝试修复
 5. **工作流结束**: AI告知用户测试报告路径
 
 **AI输出示例**:
 ```
-测试报告已生成：{project_root}/{module_name}/test_report.md
+测试报告已生成：{project_root}/test/{module_name}/test_report.md
 
 测试结果摘要：
 - 总测试数: {total}
@@ -74,10 +74,10 @@ description: "API接口测试技能，支持新增接口测试、修改接口测
 
 **触发条件**: 用户提到"重新跑测试"、"运行测试"、"执行测试"等
 
-1. **查找测试脚本**: 在 `{project_root}/{module_name}/` 目录下查找 `test_script.py`
+1. **查找测试脚本**: 在 `{project_root}/test/{module_name}/` 目录下查找 `test_script.py`
 2. **服务器检查**: 检查后端服务器是否已启动，如果未启动则启动服务器，如果已启动则直接使用
 3. **脚本运行**: 执行已有测试脚本
-4. **报告输出**: AI更新测试报告（.md格式），**使用固定文件名 `{project_root}/{module_name}/test_report.md`，每次执行覆盖更新，不生成带时间戳的新文件**。报告中仅记录问题，不尝试修复
+4. **报告输出**: AI更新测试报告（.md格式），**使用固定文件名 `{project_root}/test/{module_name}/test_report.md`，每次执行覆盖更新，不生成带时间戳的新文件**。报告中仅记录问题，不尝试修复
 5. **工作流结束**: AI告知用户测试报告路径
 
 ## 文件存储规则
@@ -87,7 +87,7 @@ description: "API接口测试技能，支持新增接口测试、修改接口测
 所有测试相关文件存储在项目模块目录下：
 
 ```
-{project_root}/{module_name}/
+{project_root}/test/{module_name}/
 ├── test_cases.md          # 测试用例文档（用户审核）
 ├── test_script.py         # 测试脚本（可执行）
 └── test_report.md         # 测试报告（输出）
@@ -99,9 +99,9 @@ description: "API接口测试技能，支持新增接口测试、修改接口测
 
 ```gitignore
 # API测试相关文件
-*/test_cases.md
-*/test_script.py
-*/test_report.md
+test/*/test_cases.md
+test/*/test_script.py
+test/*/test_report.md
 ```
 
 **重要**: AI在生成文件时，应主动检查并更新项目的 `.gitignore` 文件。
@@ -408,7 +408,7 @@ AI: "检查服务器状态...
 ## 注意事项
 
 1. **阶段分离**: 生成测试用例后必须等待用户确认，不能自动继续执行
-2. **文件位置**: 测试文件必须存储在 `{project_root}/{module_name}/` 目录下
+2. **文件位置**: 测试文件必须存储在 `{project_root}/test/{module_name}/` 目录下
 3. **Git忽略**: 所有测试文件必须添加到 `.gitignore` 中
 4. **报告格式**: 报告必须是 .md 格式，便于用户阅读，**使用固定文件名 test_report.md，每次覆盖更新，不生成带时间戳的新文件**
 5. **状态保存**: 测试脚本可重复执行，报告可覆盖更新

@@ -37,10 +37,10 @@
 
 ## 生成的文件
 
-测试相关文件存储在项目模块目录下：
+测试相关文件存储在项目的 `test/` 目录下：
 
 ```
-{project_root}/{module_name}/
+{project_root}/test/{module_name}/
 ├── test_cases.md          # 测试用例文档（供审核）
 ├── test_script.py         # 测试脚本（可执行）
 └── test_report.md         # 测试报告（输出）
